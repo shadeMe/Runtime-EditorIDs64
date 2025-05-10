@@ -6,7 +6,7 @@ includes("extern/commonlibob64")
 
 -- set project
 set_project("Runtime-EditorIDs64")
-set_version("1.0.0")
+set_version("1.1.0")
 set_license("GPL-3.0")
 
 -- set defaults

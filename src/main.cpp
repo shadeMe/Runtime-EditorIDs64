@@ -104,7 +104,7 @@ namespace Hooks
 			};
 			if (match != EditorIdBackingStore.end())
 			{
-				REX::WARN("Duplicate editor ID: {} - Overriding form...", editorId);
+				REX::DEBUG("Duplicate editor ID: {} - Overriding form...", editorId);
 				TESFormEditorIdTable::GetSingleton()->Insert(match->c_str(), form);
 			}
 			else
@@ -147,13 +147,6 @@ namespace
 			break;
 		}
 	}
-}
-
-OBSE_PLUGIN_PRELOAD(const OBSE::PreLoadInterface* a_obse)
-{
-	OBSE::Init(a_obse);
-	REX::INFO("Preload");
-	return true;
 }
 
 OBSE_PLUGIN_LOAD(const OBSE::LoadInterface* a_obse)
