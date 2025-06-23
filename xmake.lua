@@ -1,27 +1,26 @@
--- set xmake version
-set_xmakever("2.9.4")
+-- set minimum xmake version
+set_xmakever("2.8.2")
 
--- include local folders
-includes("extern/commonlibob64")
+-- includes
+includes("lib/commonlibob64")
+
 
 -- set project
 set_project("Runtime-EditorIDs64")
-set_version("1.1.0")
+set_version("2.0.0")
 set_license("GPL-3.0")
 
 -- set defaults
-set_arch("x64")
 set_languages("c++23")
-set_optimize("faster")
-set_warnings("allextra", "error")
-set_defaultmode("releasedbg")
+set_warnings("allextra")
 
--- enable lto
-set_policy("build.optimization.lto", true)
+-- set policies
+set_policy("package.requires_lock", true)
 
 -- add rules
 add_rules("mode.debug", "mode.releasedbg")
 add_rules("plugin.vsxmake.autoupdate")
+
 
 -- setup targets
 target("Runtime-EditorIDs64")
@@ -31,7 +30,8 @@ target("Runtime-EditorIDs64")
     -- add commonlibob64 plugin
     add_rules("commonlibob64.plugin", {
         name = "Runtime-EditorIDs64",
-        author = "shadeMe"
+        author = "shadeMe",
+        description = "OBSE64 plugin for runtime editor IDs",
     })
 
     -- add source files

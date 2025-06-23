@@ -6,7 +6,7 @@ namespace Hooks
 	{
 		// All other form types either handle their own editor ID or run into bugs
 		// if we add their editor ID to the main table.
-		const static std::vector<REL::Offset> kSupportedForms{
+		const static std::vector<REL::ID> kSupportedForms{
 			RE::VTABLE::TESClass.front(),
 			RE::VTABLE::TESFaction.front(),
 			RE::VTABLE::TESHair.front(),
@@ -84,13 +84,13 @@ namespace Hooks
 			void* Insert(const char* editorId, void* form)
 			{
 				using func_t = decltype(&TESFormEditorIdTable::Insert);
-				static REL::Relocation<func_t> func{ REL::Offset(0x6656EC0) };
+				static REL::Relocation<func_t> func{ REL::ID(407478) };
 				return func(this, editorId, form);
 			}
 
 			static TESFormEditorIdTable* GetSingleton()
 			{
-				static REL::Relocation<TESFormEditorIdTable*> obj{ REL::Offset(0x8FDDD70) };
+				static REL::Relocation<TESFormEditorIdTable*> obj{ REL::ID(1462835) };
 				return obj.get();
 			}
 		};
